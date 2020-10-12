@@ -1,0 +1,35 @@
+{
+  "name": "gnar-challenge-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Rodrigo Fonseca",
+  "license": "MIT",
+  "scripts": {
+    "dev": "./node_modules/cross-env/src/bin/cross-env.js NODE_ENV=development ./node_modules/nodemon/bin/nodemon.js ./src/server.js",
+    "eslint": "./node_modules/eslint/bin/eslint.js --init",
+    "commit": "cz"
+  },
+  "dependencies": {
+    "app-module-path": "^2.2.0",
+    "body-parser": "^1.19.0",
+    "cross-env": "^7.0.2",
+    "express": "^4.17.1",
+    "lodash": "^4.17.20",
+    "nodemon": "^2.0.4",
+    "sequelize": "^6.3.5"
+  },
+  "devDependencies": {
+    "commitizen": "^4.2.1",
+    "console-error": "^0.0.4",
+    "console-info": "^0.0.5",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^7.11.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
