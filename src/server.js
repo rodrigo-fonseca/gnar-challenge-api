@@ -22,7 +22,7 @@ routes.set(app)
 app.listen(port, () => {
   console.info(`Listening on http://localhost:${port}`)
   console.info(`env: ${env}`)
-  // sequelize.sync()
+  sequelize.sync()
 })
 
 app.use((err, req, res, next) => {
