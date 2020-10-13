@@ -57,18 +57,18 @@ const _initModels = () => {
   const Uploads = sequelize.define(
     'uploads',
     {
-      yard_code: {
+      yardCode: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      employee_code: {
+      employeeCode: {
         type: Sequelize.STRING,
       },
-      clock_in: {
+      clockIn: {
         type: Sequelize.DATE,
         allowNull: false,
       },
-      clock_out: {
+      clockOut: {
         type: Sequelize.DATE,
         allowNull: false,
       },
