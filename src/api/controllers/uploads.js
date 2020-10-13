@@ -18,10 +18,30 @@ async function create(req, res, next) {
   }
 }
 
+function get(req, res, next) {
+  const mapped = _map(req.params)
+  const instance = new Uploads()
+
+  console.info('mapped :>> ', mapped)
+  return instance.get(mapped).then(
+    data => res.send({ data }),
+    err => next(err)
+  )
+}
+
 function filterByNotTitleRows(rows) {
   return rows.filter((_row, i) => i !== 0)
 }
 
+function _map({ id }) {
+  const mapped = {}
+
+  if (id) mapped.id = Number(id)
+
+  return mapped
+}
+
 module.exports = {
   create,
+  get,
 }

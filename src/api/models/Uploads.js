@@ -13,7 +13,7 @@ class Uploads {
     if (_.isEmpty(data)) return Promise.reject(new error.BadRequestError())
 
     return sequelize.get().transaction(transaction => {
-      const mapped = this.mapToCreateFormat(data)
+      const mapped = this._mapToCreateFormat(data)
       const promises = mapped.map(data =>
         this.create(data, 'teste', transaction)
       )
@@ -37,7 +37,20 @@ class Uploads {
     return dbService[method]({ model, data, transaction })
   }
 
-  mapToCreateFormat(data) {
+  get({ id }) {
+    const { model } = this
+    let where = {}
+    let method = 'findAll'
+
+    if (id) {
+      where = { id }
+      method = 'findByPk'
+    }
+
+    return dbService[method]({ model, where })
+  }
+
+  _mapToCreateFormat(data) {
     return data.map(data => {
       const [yardCode, employeeCode, clockIn, clockOut] = data
 
