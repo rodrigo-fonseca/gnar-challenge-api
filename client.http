@@ -15,7 +15,7 @@ Content-Type: {{contentType}}
 
 ###
 
-GET {{api}}/uploads/:1
+GET {{api}}/uploads/1
 Content-Type: {{contentType}}
 
 ###
