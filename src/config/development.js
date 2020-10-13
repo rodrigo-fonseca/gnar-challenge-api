@@ -1,11 +1,11 @@
 const development = {
   sequelize: {
-    database: '',
-    username: '',
-    password: '',
+    database: 'gnar',
+    username: 'gnar',
+    password: 'rp[gB.2k',
     params: {
-      host: '',
-      dialect: '',
+      host: 'gnar-challenge.ctqt4d4deqat.sa-east-1.rds.amazonaws.com',
+      dialect: 'postgres',
       charset: 'utf8',
       collate: 'utf8_general_ci',
     },
