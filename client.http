@@ -1,0 +1,16 @@
+
+
+@api = http://localhost:3000
+@contentType = application/json
+
+###
+
+GET {{api}}/uploads
+Content-Type: {{contentType}}
+
+###
+
+GET {{api}}/uploads/:1
+Content-Type: {{contentType}}
+
+###
