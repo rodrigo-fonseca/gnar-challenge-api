@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS "uploads" ("id" SERIAL , "yardCode" VARCHAR(255) NOT 
 
 # database connection
 
-host: gnar-challenge.ctqt4d4deqat.sa-east-1.rds.amazonaws.com
-port: 5432
-username: gnar
+host: gnar-challenge.ctqt4d4deqat.sa-east-1.rds.amazonaws.com \
+port: 5432 \
+username: gnar \
 password: rp[gB.2k
