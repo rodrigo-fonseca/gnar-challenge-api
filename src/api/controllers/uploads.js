@@ -22,7 +22,6 @@ function get(req, res, next) {
   const mapped = _map(req.params)
   const instance = new Uploads()
 
-  console.info('mapped :>> ', mapped)
   return instance.get(mapped).then(
     data => res.send({ data }),
     err => next(err)
