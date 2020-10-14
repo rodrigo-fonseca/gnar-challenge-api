@@ -8,14 +8,15 @@ class Uploads {
     this.model = this._getModel()
   }
 
-  add(data) {
-    if (!_.isArray(data)) return Promise.reject(new error.BadRequestError())
-    if (_.isEmpty(data)) return Promise.reject(new error.BadRequestError())
+  add({ list, filename }) {
+    if (!_.isArray(list) || _.isEmpty(list))
+      return Promise.reject(new error.BadRequestError())
+    if (!filename) return Promise.reject(new error.BadRequestError())
 
     return sequelize.get().transaction(transaction => {
-      const mapped = this._mapToCreateFormat(data)
+      const mapped = this._mapToCreateFormat(list)
       const promises = mapped.map(data =>
-        this.create(data, 'teste', transaction)
+        this.create(data, filename, transaction)
       )
 
       return Promise.all(promises)

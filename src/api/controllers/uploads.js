@@ -4,12 +4,13 @@ const Uploads = require('api/models/Uploads')
 
 async function create(req, res, next) {
   try {
-    const csvParseService = new CsvParseService(req.file.buffer)
+    const { file, filename } = _map(req)
+    const csvParseService = new CsvParseService(file.buffer)
     const parsed = await csvParseService.parse()
     const filtered = filterByNotTitleRows(parsed)
     const instance = new Uploads()
 
-    return instance.add(filtered).then(
+    return instance.add({ list: filtered, filename }).then(
       data => res.send({ data }),
       err => next(err)
     )
@@ -32,10 +33,14 @@ function filterByNotTitleRows(rows) {
   return rows.filter((_row, i) => i !== 0)
 }
 
-function _map({ id }) {
+function _map({ id, file }) {
   const mapped = {}
 
   if (id) mapped.id = Number(id)
+  if (file) {
+    mapped.file = file
+    if (file.originalname) mapped.filename = file.originalname
+  }
 
   return mapped
 }
