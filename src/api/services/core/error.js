@@ -1,17 +1,6 @@
 /* eslint max-classes-per-file: ["error", 5] */
 /* eslint no-param-reassign: "error" */
 
-const ERRORS_TYPES = {
-  UNIQUE_EMAIL: 'UNIQUE_EMAIL',
-  USER_NOT_FOUND: 'USER_NOT_FOUND',
-  INVALID_TOKEN: 'INVALID_TOKEN',
-  TOKEN_NOT_FOUND: 'TOKEN_NOT_FOUND',
-  TIMEOUT: 'TIMEOUT',
-  LOGIN_ERROR: 'LOGIN_ERROR',
-  USER_ALREADY_REGISTERED: 'USER_ALREADY_REGISTERED',
-  CLASSROOM_PATH_ALREADY_REGISTERED: 'CLASSROOM_PATH_ALREADY_REGISTERED',
-}
-
 class BadRequestError extends Error {
   constructor(...args) {
     super()
@@ -92,6 +81,5 @@ module.exports = {
   UnauthorizedError,
   InternalServerError,
   NotFoundError,
-  ERRORS_TYPES,
   map,
 }
